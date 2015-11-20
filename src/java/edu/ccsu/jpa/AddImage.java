@@ -25,9 +25,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Curtis
  */
 @WebServlet(name = "AddImage", urlPatterns = {"/AddImage"})
-public class JPATableCreation extends HttpServlet {
-    
-    @PersistenceUnit (unitName = "WebApplication1PU")
+public class AddImage extends HttpServlet {
+
+    @PersistenceUnit(unitName = "WebApplication1PU")
     private EntityManagerFactory entityManagerFactory;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
