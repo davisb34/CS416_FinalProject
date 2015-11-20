@@ -7,9 +7,15 @@
     </h:head>
     <h:body>
         <h:messages style="color:red;font-weight:bold;"></h:messages>
-        <h:form>
+        <h:form enctype="multipart/form-data">
 
-            
+            <h:panelGrid columns="2" columnClasses="rightAlign,LeftAlign">
+                <h:outputText value="Image Title"></h:outputText>
+                <h:inputText label="Title" value="#{image.title}" required="true"/>
+                <h:outputText value="Image file:"></h:outputText>
+                <h:inputFile label="Art" value="#{image.art}" required="true"/>
+                <h:commandButton action="#{imageController.saveImage()}" value="save"></h:commandButton>
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>

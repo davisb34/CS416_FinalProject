@@ -36,7 +36,7 @@ public class ImageController {
             entityManager.persist(image);
             userTransaction.commit();
             entityManager.close();
-            returnVal = "Saved Image";
+            returnVal = "confirmationImage";
         }catch(Exception e) {
             e.printStackTrace();
         }

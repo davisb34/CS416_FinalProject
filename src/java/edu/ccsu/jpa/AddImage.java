@@ -63,7 +63,7 @@ public class AddImage extends HttpServlet {
             byte[] bytes = bos.toByteArray();
             Image image = new Image();
             image.setTitle(title);
-            image.setArt(bytes);
+            //image.setArt(bytes);
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             
             entityManager.getTransaction().begin();

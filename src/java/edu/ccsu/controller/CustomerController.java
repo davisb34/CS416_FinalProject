@@ -37,7 +37,7 @@ public class CustomerController {
             entityManager.persist(customer);
             userTransaction.commit();
             entityManager.close();
-            returnVal = "Saved Customer";
+            returnVal = "confirmation";
         }catch(Exception e) {
             e.printStackTrace();
         }
