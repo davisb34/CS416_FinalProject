@@ -7,6 +7,7 @@ package edu.ccsu.beans;
 
 import java.beans.*;
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -15,6 +16,7 @@ import javax.persistence.Id;
  *
  * @author Curtis
  */
+@ManagedBean
 @Entity
 public class Image implements Serializable {
     @Id
