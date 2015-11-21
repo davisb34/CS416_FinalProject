@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 
 /**
  *
@@ -20,6 +21,8 @@ public class Image implements Serializable {
     @Id
     @GeneratedValue
     private String title;
+    
+    @Lob
     private byte[] content;
     
     public Image() {
