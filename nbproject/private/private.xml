@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/web/WEB-INF/faces-config.xml</file>
+            <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/web/TestImageUpload.xhtml</file>
             <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/web/confirmationImage.xhtml</file>
             <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/src/java/edu/ccsu/controller/ImageController.java</file>
+            <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/web/TestImage.xhtml</file>
             <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/src/java/edu/ccsu/beans/Image.java</file>
             <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/src/java/edu/ccsu/beans/ImageUpload.java</file>
         </group>
