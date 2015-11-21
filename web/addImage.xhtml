@@ -7,17 +7,19 @@
         <title>Image data entry</title>
     </h:head>
     <h:body>
-        <h:messages style="color:red;font-weight:bold;"></h:messages>
+        <h:messages id="validationMessage" style="color:red;font-weight:bold;"></h:messages>
         <h:form enctype="multipart/form-data">
 
             <h:panelGrid columns="2" columnClasses="rightAlign,LeftAlign">
                 <h:outputText value="Image Title"></h:outputText>
                 <h:inputText label="Title" value="#{image.title}" required="true">
                     <f:validateLength minimum="2" maximum="50"></f:validateLength>
+                    <f:ajax event="blur" render="validationMessage" />
                 </h:inputText>
                 <h:outputText value="Image file:"></h:outputText>
                 <h:inputFile label="Art" value="#{image.art}" required="true">
                     <f:validator validatorId="imageValidator" />
+                    <f:ajax event="blur" render="validationMessage" />
                 </h:inputFile>
                 <h:commandButton action="#{imageController.saveImage()}" value="save"></h:commandButton>
             </h:panelGrid>
