@@ -5,32 +5,28 @@
  */
 package edu.ccsu.beans;
 
-import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.servlet.http.Part;
-import org.jcp.xml.dsig.internal.dom.Utils;
+
 /**
  *
  * @author Curtis
  */
-@ManagedBean
 @Entity
 public class Image implements Serializable {
     @Id
     @GeneratedValue
     private String title;
-    private Part art;
     private byte[] content;
     
     public Image() {
     }
     
-    public void read() throws IOException {
-        content = Utils.readBytesFromStream(art.getInputStream());
+    public void setContent(byte[] content){
+        this.content = content;
     }
     
     public String getTitle() {
@@ -38,13 +34,6 @@ public class Image implements Serializable {
     }
     public void setTitle(String newTitle) {
         title = newTitle;
-    }
-    
-    public Part getArt() {
-        return art;
-    }
-    public void setArt(Part newArt) {
-        art = newArt;
     }
     
     public byte[] getContent() {

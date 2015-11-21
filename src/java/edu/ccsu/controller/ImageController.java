@@ -6,13 +6,16 @@
 package edu.ccsu.controller;
 
 import edu.ccsu.beans.Image;
+import java.io.ByteArrayOutputStream;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceUnit;
 import javax.transaction.UserTransaction;
+import java.io.IOException;
+import java.io.InputStream;
+import javax.servlet.http.Part;
 
 /**
  *
@@ -25,17 +28,27 @@ public class ImageController {
     private EntityManagerFactory entityManagerFactory;
     @Resource
     private UserTransaction userTransaction;
-    @ManagedProperty (value = "#{image}")
-    private Image image;
+    private Part art;
+    private String title;
     
-    public String saveImage() {
+    
+    public String saveImage() throws IOException {
+        
         String returnVal = "error";
         try {
             userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
+            Image image = new Image();
+            InputStream input = art.getInputStream();
+            ByteArrayOutputStream output = new ByteArrayOutputStream();
+            byte[] buffer = new byte[10240];
+            for (int length = 0; (length = input.read(buffer)) > 0;) output.write(buffer, 0, length);
+            image.setContent(output.toByteArray());
+            image.setTitle(title);
             entityManager.persist(image);
             userTransaction.commit();
             entityManager.close();
+            
             returnVal = "confirmationImage";
         }catch(Exception e) {
             e.printStackTrace();
@@ -43,11 +56,26 @@ public class ImageController {
         return returnVal;
     }
     
-    public Image getImage() {
-        return image;
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String newTitle) {
+        title = newTitle;
     }
     
-    public void setImage(Image newImage) {
-        image = newImage;
+    public Part getArt() {
+        return art;
     }
+    
+    public void setArt(Part art) {
+       this.art = art;
+    }
+    
+//    public Image getImage() {
+//        return image;
+//    }
+//    
+//    public void setImage(Image newImage) {
+//        image = newImage;
+//    }
 }
