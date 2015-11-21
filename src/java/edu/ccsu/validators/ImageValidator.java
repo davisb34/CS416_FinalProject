@@ -15,8 +15,7 @@ public class ImageValidator implements Validator{
     @Override
     public void validate(FacesContext context, UIComponent component, Object value) throws ValidatorException {
         Part image = (Part)value;
-        HtmlInputText htmlInputText = (HtmlInputText)component;
-        if ( !("image".equals(image.getContentType())) ){
+        if (!(image.getContentType().contains("image"))){
             FacesMessage facesMessage =  new FacesMessage("Please only upload image files.");
             throw new ValidatorException(facesMessage);
         }
