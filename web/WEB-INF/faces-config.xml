@@ -4,36 +4,11 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     <navigation-rule>
-        <from-view-id>/TestCustomer.xhtml</from-view-id>
+        <from-view-id>TestImage.xhtml</from-view-id>
         
         <navigation-case>
-            <from-action>#{customerController.saveCustomer}</from-action>
-            <from-outcome>Saved Customer</from-outcome>
-            <to-view-id>/confirmation.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-        
-        <navigation-case>
-            <from-action>#{customerController.saveCustomer}</from-action>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/TestCustomer.xhtml</to-view-id>
-        </navigation-case>
-    </navigation-rule>
-    
-    <navigation-rule>
-        <from-view-id>/TestImage.xhtml</from-view-id>
-        
-        <navigation-case>
-            <from-action>#{imageController.saveImage}</from-action>
-            <from-outcome>Saved Image</from-outcome>
-            <to-view-id>/confirmationImage.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-        
-        <navigation-case>
-            <from-action>#{imageController.saveImage}</from-action>
-            <from-outcome>error</from-outcome>
-            <to-view-id>/TestImage.xhtml</to-view-id>
+            <from-outcome>inputImage</from-outcome>
+            <to-view-id>testUploadImage.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
 </faces-config>

@@ -5,7 +5,7 @@
  */
 package edu.ccsu.controller;
 
-import edu.ccsu.beans.Image;
+import edu.ccsu.beans.ImageUpload;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -25,15 +25,15 @@ public class ImageController {
     private EntityManagerFactory entityManagerFactory;
     @Resource
     private UserTransaction userTransaction;
-    @ManagedProperty (value = "#{image}")
-    private Image image;
+    @ManagedProperty (value = "#{imageUpload}")
+    private ImageUpload imageUpload;
     
     public String saveImage() {
         String returnVal = "error";
         try {
             userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
-            entityManager.persist(image);
+            entityManager.persist(imageUpload);
             userTransaction.commit();
             entityManager.close();
             returnVal = "confirmationImage";
@@ -43,11 +43,11 @@ public class ImageController {
         return returnVal;
     }
     
-    public Image getImage() {
-        return image;
+    public ImageUpload getImageUpload() {
+        return imageUpload;
     }
     
-    public void setImage(Image newImage) {
-        image = newImage;
+    public void setImageUpload(ImageUpload imageUpload) {
+        this.imageUpload = imageUpload;
     }
 }

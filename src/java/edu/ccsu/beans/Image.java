@@ -8,9 +8,7 @@ package edu.ccsu.beans;
 import java.io.IOException;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.faces.bean.SessionScoped;
 import javax.servlet.http.Part;
 import org.jcp.xml.dsig.internal.dom.Utils;
 /**
@@ -18,10 +16,9 @@ import org.jcp.xml.dsig.internal.dom.Utils;
  * @author Curtis
  */
 @ManagedBean
-@Entity
+@SessionScoped
 public class Image implements Serializable {
-    @Id
-    @GeneratedValue
+
     private String title;
     private Part art;
     private byte[] content;
@@ -29,8 +26,9 @@ public class Image implements Serializable {
     public Image() {
     }
     
-    public void read() throws IOException {
+    public String read() throws IOException {
         content = Utils.readBytesFromStream(art.getInputStream());
+        return "inputImage";
     }
     
     public String getTitle() {
