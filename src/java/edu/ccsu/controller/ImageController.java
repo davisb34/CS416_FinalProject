@@ -15,6 +15,9 @@ import javax.persistence.PersistenceUnit;
 import javax.transaction.UserTransaction;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Query;
 import javax.servlet.http.Part;
 
 /**
@@ -54,6 +57,19 @@ public class ImageController {
             e.printStackTrace();
         }
         return returnVal;
+    }
+    
+    public List getAllImages() {
+        List<Image> images = new ArrayList();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String selectSQL = "select * from image";
+        try {
+            Query selectQuery = entityManager.createQuery(selectSQL);
+            images = selectQuery.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return images;
     }
     
     public String getTitle() {
