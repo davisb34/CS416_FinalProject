@@ -7,10 +7,11 @@
     </h:head>
     <h:body>
         <h1>Information saved successfully</h1>
-        <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+        <h:panelGrid columns= "2" columnClasses="rightAlign,leftAlign">
             <h:outputText value="Title:"></h:outputText>
-            <h:outputText value="#{image.title}"></h:outputText>
-<!--            <h:outputText value="#{image.content}"></h:outputText>-->
+            <h:outputText value="#{imageController.title}"></h:outputText>
+             <h:outputText value=" Content: "></h:outputText>
+           <h:outputText value="#{image.content}"></h:outputText>
         </h:panelGrid>
     </h:body>
 </html>

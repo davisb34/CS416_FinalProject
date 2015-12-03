@@ -7,14 +7,22 @@
         <title>Gallery page</title>
     </h:head>
     <h:body>
-        <h:dataTable id="datatable" value="#{imageController.allImages}" var="item" border="3" cellpadding="2" cellspacing="2">
+        <h:dataTable id="datatable" value="#{imageController.retrieveImage}" var="item" border="3" cellpadding="2" cellspacing="2">
                 <h:column>
                     <f:facet name="header">
                         <h:outputText value="Title" />
                     </f:facet> 
                     <h:outputText value="#{item.title}" ></h:outputText>
                 </h:column>
+             <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Art" />
+                    </f:facet> 
+                    <h:outputText value="#{item.content}" ></h:outputText>
+                </h:column>
+            <h:column>
+            <h:graphicImage id="image" url="#{imageController.retrieveImage}" alt = "urmom" /> 
+            </h:column>
         </h:dataTable>
     </h:body>
 </html>
-

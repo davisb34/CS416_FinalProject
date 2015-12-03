@@ -3,7 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Curtis/Documents/GitHub/CS416_FinalProject/src/java/edu/ccsu/jpa/AddImage.java</file>
+            <file>file:/C:/Users/Danjo34/Documents/CS416_FinalProject/src/java/edu/ccsu/beans/Image.java</file>
+            <file>file:/C:/Users/Danjo34/Documents/CS416_FinalProject/web/displayImage.xhtml</file>
+            <file>file:/C:/Users/Danjo34/Documents/CS416_FinalProject/web/addImage.xhtml</file>
+            <file>file:/C:/Users/Danjo34/Documents/CS416_FinalProject/src/java/edu/ccsu/controller/ImageController.java</file>
+            <file>file:/C:/Users/Danjo34/Documents/CS416_FinalProject/web/confirmationImage.xhtml</file>
         </group>
     </open-files>
 </project-private>

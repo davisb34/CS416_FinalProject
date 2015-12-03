@@ -8,18 +8,12 @@
     </h:head>
     <h:body>
         <h:messages id="validationMessage" style="color:red;font-weight:bold;"></h:messages>
-        <h:form enctype="multipart/form-data">
+        <h:form>
 
             <h:panelGrid columns="2" columnClasses="rightAlign,LeftAlign">
                 <h:outputText value="Image Title"></h:outputText>
-                <h:inputText label="Title" value="#{imageController.title}" required="true">
-                  
-                </h:inputText>
-                <h:outputText value="Image file:"></h:outputText>
-                <h:inputFile label="Art" value="#{imageController.art}" required="true">
-                   
-                </h:inputFile> 
-                <h:commandButton action="#{imageController.saveImage}" value="save"></h:commandButton>
+                <h:inputText label="Title" value="#{imageController.title}" required="true"></h:inputText>
+                 <h:commandButton action="#{imageController.retrieveImage}" value="save"></h:commandButton>
                 
             </h:panelGrid>
         </h:form>
