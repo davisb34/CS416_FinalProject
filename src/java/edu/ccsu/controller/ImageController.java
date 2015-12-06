@@ -62,7 +62,7 @@ public class ImageController {
     public List getAllImages() {
         List<Image> images = new ArrayList();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        String selectSQL = "select * from image";
+        String selectSQL = "SELECT i FROM Image i";
         try {
             Query selectQuery = entityManager.createQuery(selectSQL);
             images = selectQuery.getResultList();
