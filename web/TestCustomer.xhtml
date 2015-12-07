@@ -11,8 +11,12 @@
             <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
                 <h:outputText value="Email"></h:outputText>
                 <h:inputText label="Email" value="#{customer.email}" required="true"/>
-                <h:outputText value="Username"></h:outputText>
-                <h:inputText label="Username" value="#{customer.username}" required="true"/> 
+                <h:outputText value="firstName"></h:outputText>
+                <h:inputText label="First Name" value="#{customer.firstName}" required="true"/> 
+                <h:outputText value="lastName"></h:outputText>
+                <h:inputText label="Last Name" value="#{customer.lastName}" required="true"/> 
+                <h:outputText value="usState"></h:outputText>
+                <h:inputText label="State" value="#{customer.usState}" required="true"/>
                 <h:panelGroup></h:panelGroup>
                 <h:commandButton action="#{customerController.saveCustomer}" value="Save"></h:commandButton>
             </h:panelGrid>
@@ -20,7 +24,7 @@
     </h:body>
 </html>
 
-  <f:validateLength minimum="2" maximum="50"></f:validateLength>
+<!--  <f:validateLength minimum="2" maximum="50"></f:validateLength>
                     <f:ajax event="blur" render="validationMessage" />
                      <f:validator validatorId="imageValidator" />
-                    <f:ajax event="blur" render="validationMessage" /> 
+                    <f:ajax event="blur" render="validationMessage" /> -->
