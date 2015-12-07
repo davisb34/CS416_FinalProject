@@ -5,6 +5,7 @@
  */
 package edu.ccsu.controller;
 
+import edu.ccsu.beans.Customer;
 import edu.ccsu.beans.Image;
 import java.io.ByteArrayOutputStream;
 import javax.annotation.Resource;
@@ -17,8 +18,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Query;
 import javax.servlet.http.Part;
+import org.omnifaces.util.Utils;
 
 /**
  *
@@ -33,6 +36,7 @@ public class ImageController {
     private UserTransaction userTransaction;
     private Part art;
     private String title;
+    private Set<Customer> customers;
     
     
     public String saveImage() throws IOException {
@@ -59,10 +63,38 @@ public class ImageController {
         return returnVal;
     }
     
+    public String deleteImage() {
+        String returnValue = "error";
+        try {
+            userTransaction.begin();
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            Image imageToDelete = entityManager.find(Image.class, title);
+            entityManager.remove(imageToDelete);
+            userTransaction.commit();
+            returnValue = "deleteSuccessful";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return returnValue;
+    }
+    
     public List getAllImages() {
         List<Image> images = new ArrayList();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         String selectSQL = "SELECT i FROM Image i";
+        try {
+            Query selectQuery = entityManager.createQuery(selectSQL);
+            images = selectQuery.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return images;
+    }
+    
+    public List getAllImageTitles() {
+        List<Image> images = new ArrayList();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String selectSQL = "SELECT i.title FROM Image i";
         try {
             Query selectQuery = entityManager.createQuery(selectSQL);
             images = selectQuery.getResultList();
@@ -85,6 +117,13 @@ public class ImageController {
     
     public void setArt(Part art) {
        this.art = art;
+    }
+    
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
     }
     
 //    public Image getImage() {

@@ -6,10 +6,15 @@
 package edu.ccsu.beans;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -22,6 +27,12 @@ public class Customer implements Serializable {
     @GeneratedValue
     private String email;
     private String username;
+    
+    @ManyToMany
+    @JoinTable(name="CustomerImage",
+            joinColumns=@JoinColumn(name="customerId",referencedColumnName="email"),
+            inverseJoinColumns=@JoinColumn(name="imageId",referencedColumnName="title"))
+    private Set<Image> images = new HashSet();
     
     public Customer() {
     }
@@ -37,6 +48,13 @@ public class Customer implements Serializable {
     }
     public void setUsername(String newUsername) {
         username = newUsername;
+    }
+    
+    public Set<Image> getImages() {
+        return images;
+    }
+    public void setImages(Set<Image> images) {
+        this.images = images;
     }
     
 }

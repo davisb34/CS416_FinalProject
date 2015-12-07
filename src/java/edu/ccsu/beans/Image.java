@@ -6,11 +6,12 @@
 package edu.ccsu.beans;
 
 import java.io.Serializable;
-import javax.faces.bean.ManagedBean;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -24,6 +25,9 @@ public class Image implements Serializable {
     
     @Lob
     private byte[] content;
+    
+    @ManyToMany(mappedBy="images")
+    private Set<Customer> customers;
     
     public Image() {
     }
@@ -41,5 +45,11 @@ public class Image implements Serializable {
     
     public byte[] getContent() {
         return content;
+    }
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+    public void setCustomers(Set<Customer> customers) {
+        this.customers = customers;
     }
 }

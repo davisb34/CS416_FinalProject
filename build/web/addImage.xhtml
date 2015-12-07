@@ -8,18 +8,31 @@
     </h:head>
     <h:body>
         <h:messages id="validationMessage" style="color:red;font-weight:bold;"></h:messages>
+        <h:outputLink value="Gallery.xhtml">
+            <h:outputText value="Gallery"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="Commission.xhtml">
+            <h:outputText value="Commission Art"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="addImage.xhtml">
+            <h:outputText value="Add Image"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="DeleteImage.xhtml">
+            <h:outputText value="Delete Image"/>
+        </h:outputLink>
         <h:form enctype="multipart/form-data">
 
             <h:panelGrid columns="2" columnClasses="rightAlign,LeftAlign">
                 <h:outputText value="Image Title"></h:outputText>
                 <h:inputText label="Title" value="#{imageController.title}" required="true">
                     <f:validateLength minimum="2" maximum="50"></f:validateLength>
-                    <f:ajax event="blur" render="validationMessage" />
                 </h:inputText>
                 <h:outputText value="Image file:"></h:outputText>
                 <h:inputFile label="Art" value="#{imageController.art}" required="true">
                     <f:validator validatorId="imageValidator" />
-                    <f:ajax event="blur" render="validationMessage" />
                 </h:inputFile>
                 <h:commandButton action="#{imageController.saveImage()}" value="save"></h:commandButton>
             </h:panelGrid>

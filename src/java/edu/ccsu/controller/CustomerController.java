@@ -6,6 +6,8 @@
 package edu.ccsu.controller;
 
 import edu.ccsu.beans.Customer;
+import edu.ccsu.beans.Image;
+import java.util.Set;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
@@ -28,13 +30,22 @@ public class CustomerController {
     private UserTransaction userTransaction;
     @ManagedProperty(value = "#{customer}")
     private Customer customer;
+    @ManagedProperty(value = "#{image}")
+    private Image image;
     
     public String saveCustomer() {
         String returnVal = "error";
         try {
             userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
+            Set<Image> images = customer.getImages();
+            images.add(image);
+            customer.setImages(images);
             entityManager.persist(customer);
+            Set<Customer> customers = image.getCustomers();
+            customers.add(customer);
+            image.setCustomers(customers);
+            entityManager.persist(image);
             userTransaction.commit();
             entityManager.close();
             returnVal = "confirmation";
@@ -50,5 +61,11 @@ public class CustomerController {
     
     public void setCustomer(Customer newCustomer) {
         customer = newCustomer;
+    }
+    public Image getImage() {
+        return image;
+    }
+    public void setImage(Image image) {
+        this.image = image;
     }
 }

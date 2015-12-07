@@ -13,10 +13,10 @@
                 <h:inputText value="#{customer.email}"/>
                 
                 <h:outputText value="Image"></h:outputText>
-                <h:selectManyListbox value="#{imageController.title}">
-                    <f:selectItems value="#{imageController.allImages}"/>
-                </h:selectManyListbox>
-                <h:commandButton value="Commission" action=""
+                <h:selectOneMenu value="#{imageController.title}">
+                    <f:selectItems value="#{imageController.allImages}" var="image" itemLabel="#{image.title}" itemValue="#{image.title}"/>
+                </h:selectOneMenu>
+                <h:commandButton value="Commission" action="#{customerController.saveCustomer()}"/>
             </h:panelGrid>
         </h:form>
     </h:body>

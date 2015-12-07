@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:messages style="color:red;font-weight:bold;"></h:messages>
+        <h:outputLink value="Gallery.xhtml">
+            <h:outputText value="Gallery"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="Commission.xhtml">
+            <h:outputText value="Commission Art"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="addImage.xhtml">
+            <h:outputText value="Add Image"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="DeleteImage.xhtml">
+            <h:outputText value="Delete Image"/>
+        </h:outputLink>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputText value="Title of image"/>
+                <h:inputText value="${imageController.title}" label="Primary key">
+                </h:inputText>
+                <h:panelGroup></h:panelGroup>
+                <h:commandButton action="#{imageController.deleteImage}" value="Delete"></h:commandButton>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,16 +1,31 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:o="http://omnifaces.org/ui">
     <h:head>
         <title>Image data entered</title>
     </h:head>
     <h:body>
+        <h:outputLink value="Gallery.xhtml">
+            <h:outputText value="Gallery"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="Commission.xhtml">
+            <h:outputText value="Commission Art"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="addImage.xhtml">
+            <h:outputText value="Add Image"/>
+        </h:outputLink>
+        <br/>
+        <h:outputLink value="DeleteImage.xhtml">
+            <h:outputText value="Delete Image"/>
+        </h:outputLink>
         <h1>Information saved successfully</h1>
         <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
             <h:outputText value="Title:"></h:outputText>
-            <h:outputText value="#{image.title}"></h:outputText>
-<!--            <h:outputText value="#{image.content}"></h:outputText>-->
+            <h:outputText value="#{imageController.title}"></h:outputText>
         </h:panelGrid>
     </h:body>
 </html>
