@@ -97,6 +97,7 @@ public class CustomerController {
             entityManager.persist(image);
             entityManager.persist(customer);
             userTransaction.commit();
+            entityManager.close();
         }catch(Exception e) {
             e.printStackTrace();
         }
@@ -105,7 +106,6 @@ public class CustomerController {
     
     public Customer getMatchingCustomer() {
         try {
-            userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             customer = entityManager.find(Customer.class, email);
         }catch(Exception e) {
