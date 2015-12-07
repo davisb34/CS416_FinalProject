@@ -4,14 +4,13 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gallery</title>
+
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="lib/jquery.fancybox-1.3.4.pack.js"></script>
-        <script type="text/javascript" src="js/fancybox.js"></script>
+        <script type="text/javascript" src="lib/jquery.fancybox.js"></script>
+        <script type="text/javascript" src="js/Fancybox.js"></script>
         <link rel="stylesheet" type="text/css" href="style.css" />
         
         	<!-- Add jQuery library -->
@@ -19,15 +18,15 @@ and open the template in the editor.
 
 	<!-- Add fancyBox main JS and CSS files -->
 	<script type="text/javascript" src="lib/jquery.fancybox.js?v=2.1.5"></script>
-	<link rel="stylesheet" type="text/css" href=lib/jquery.fancybox.css?v=2.1.5" media="screen" />
+	<link rel="stylesheet" type="text/css" href="lib/jquery.fancybox.css?v=2.1.5" media="screen" />
 
-	<script type="text/javascript">
+  	<script type="text/javascript">
             		$(document).ready(function() {
 			/*
 			 *  Simple image gallery. Uses default settings
 			 */
 
-			$('.fancybox').fancybox();
+			$(".fancybox").fancybox();
 
 			/*
 			 *  Different effects
@@ -197,69 +196,52 @@ and open the template in the editor.
 
 		});
 	</script>
-
-            
-        <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="lib/jquery.fancybox.css" type="text/css" media="screen" />
     </head>
-<body>
-
+    <body>
 	<div id="page-wrap">
-		<div id="inside">
-			
-			<div id="header">
-				<nav>
-                                    <ul>
-                                      <li>
-                                          <a href="Home.xhtml">Home</a>
-                                      </li>
-                                      <li>
-                                          <a href="Gallery.xhtml">Gallery</a>
-                                      </li>
-                                      <li>
-                                          <a href="AboutMe.xhtml">About Me</a>
-                                      </li>
-                                      <li>
-                                          <a href="/contact">Contact</a>
-                                      </li>
-                                    </ul>
-                                  </nav>
-			</div>
-                    <div>
-						
-				<h2>Gallery:</h2>
- 
-                                <a class="fancybox" href="img/01.jpg" data-fancybox-group="gallery" title="The bistro with all the rats"><img src="img/thumb-01.jpg" alt="" /></a>
-
-				
-
-			
-			</div>
-			
-			
-			<div id="footer">
-				<p>Contact info + copyright stuff</p>
-                                <div>
-                                    <a href="[full link to your Twitter]">
-                                        <img title="Twitter" alt="Twitter" src="https://socialmediawidgets.files.wordpress.com/2014/03/01_twitter1.png" width="35" height="35" />
-                                    </a>
-                                    <a href="[full link to your LinkedIn]">
-                                        <img title="LinkedIn" alt="LinkedIn" src="https://socialmediawidgets.files.wordpress.com/2014/03/07_linkedin1.png" width="35" height="35" />
-                                    </a>
-                                    <a href="[full link to your Facebook page]">
-                                        <img title="Facebook" alt="Facebook" src="https://socialmediawidgets.files.wordpress.com/2014/03/02_facebook1.png" width="35" height="35" />
-                                    </a>
-                                    <a href="pinterestaddress">
-                                        <img title="Pinterest" alt="Pinterest" src="https://socialmediawidgets.files.wordpress.com/2014/03/13_pinterest1.png" width="35" height="35" />
-                                    </a>
-                                </div>
-			</div>
-		
+            <div id="inside"> 
+		<div id="header">
+		    <nav>
+                        <ul>
+                            <li>
+                                <a href="Home.xhtml">Home</a>
+                            </li>
+                            <li>
+                                <a href="Gallery.xhtml">Gallery</a>
+                            </li>
+                            <li>
+                                <a href="AboutMe.xhtml">About Me</a>
+                            </li>
+                            <li>
+                                <a href="/contact">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
 		</div>
-		
-		<div style="clear: both;"></div>
-	
+                <div>
+		    <h2>Gallery:</h2>
+                    <a class="fancybox" href="img/01.jpg" data-fancybox-group="gallery" title="The bistro with all the rats"><img src="img/thumb-01.jpg" alt="" /></a>
+		</div>
+		<div id="footer">
+   		    <p>Contact info + copyright stuff</p>
+                    <div>
+                        <a href="[full link to your Twitter]">
+                            <img title="Twitter" alt="Twitter" src="https://socialmediawidgets.files.wordpress.com/2014/03/01_twitter1.png" width="35" height="35" />
+                        </a>
+                        <a href="[full link to your LinkedIn]">
+                            <img title="LinkedIn" alt="LinkedIn" src="https://socialmediawidgets.files.wordpress.com/2014/03/07_linkedin1.png" width="35" height="35" />
+                        </a>
+                        <a href="[full link to your Facebook page]">
+                            <img title="Facebook" alt="Facebook" src="https://socialmediawidgets.files.wordpress.com/2014/03/02_facebook1.png" width="35" height="35" />
+                        </a>
+                        <a href="pinterestaddress">
+                            <img title="Pinterest" alt="Pinterest" src="https://socialmediawidgets.files.wordpress.com/2014/03/13_pinterest1.png" width="35" height="35" />
+                        </a>
+                    </div>
+		</div>
+	    </div>
+	    <div style="clear: both;"></div>
 	</div>
-
-</body>
-
+    </body>
 </html>
