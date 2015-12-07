@@ -45,17 +45,10 @@ public class ImageController {
         try {
             userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
-            image = new Image();
-            InputStream input = art.getInputStream();
-            ByteArrayOutputStream output = new ByteArrayOutputStream();
-            byte[] buffer = new byte[10240];
-            for (int length = 0; (length = input.read(buffer)) > 0;) output.write(buffer, 0, length);
-            image.setContent(output.toByteArray());
-            image.setTitle(title);
+            image = new Image(art, title);
             entityManager.persist(image);
             userTransaction.commit();
             entityManager.close();
-            
             returnVal = "confirmationImage";
         }catch(Exception e) {
             e.printStackTrace();

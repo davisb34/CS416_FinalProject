@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Search for a customer</title>
+    </h:head>
+    <h:body>
+        <h:form enctype="multipart/form-data">
+            <h:outputText value="Enter Your Email:"></h:outputText>
+            <h:inputText id="first" value="#{customerController.email}">
+                <f:ajax event="keyup" render="datatable"/>
+            </h:inputText>
+            <br/>
+            <h:dataTable id="datatable" value="#{customerController.matchingCustomer}" var="item" border="3" cellpadding="2" cellspacing="2">
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="First Name"/>
+                    </f:facet>
+                    <h:outputText value="#{item.firstName}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Last Name"/>
+                    </f:facet>
+                    <h:outputText value="#{item.lastName}"/>
+                </h:column>
+                
+                <h:column>
+                    <f:facet name="header">
+                        <h:outputText value="Email"/>
+                    </f:facet>
+                    <h:outputText value="#{item.email}"/>
+                </h:column>
+            </h:dataTable>
+            <br/>
+            <h:panelGrid columns="2" columnClasses="rightAlign,LeftAlign">
+                <h:outputText value="Image Title"></h:outputText>
+                <h:inputText label="Title" value="#{customerController.title}" required="true">
+                  
+                </h:inputText>
+                <h:outputText value="Image file:"></h:outputText>
+                <h:inputFile label="Art" value="#{customerController.art}" required="true">
+                   
+                </h:inputFile> 
+                <h:commandButton action="#{customerController.addImageToCustomer}" value="save"></h:commandButton>
+                
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>
