@@ -16,7 +16,8 @@
                         <f:ajax event="keyup" render="datatable"/>
                     </h:inputText>
                     <br/>
-                    <h:dataTable id="datatable" value="#{customerController.matchingCustomer}" var="item" border="3" cellpadding="2" cellspacing="2">
+                    <br/>
+                    <h:dataTable id="datatable" value="#{customerController.matchingCustomer}" var="item" border="0" cellpadding="2" cellspacing="2">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="First Name"/>
