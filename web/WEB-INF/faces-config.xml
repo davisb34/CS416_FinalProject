@@ -54,6 +54,24 @@
         </navigation-case>
     </navigation-rule>
     
+    <navigation-rule>
+        <from-view-id>/Gallery.xhtml</from-view-id>
+        
+        <navigation-case>
+            <from-action>#{imageController.deleteimage}</from-action>
+            <from-outcome>Gallery</from-outcome>
+            <to-view-id>/Gallery.xhtml</to-view-id>
+        
+        </navigation-case>
+        
+         <navigation-case>
+            <from-action>#{imageController.retrieveImage}</from-action>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/displayImage.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
     
   
 </faces-config>
