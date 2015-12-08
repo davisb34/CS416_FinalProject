@@ -64,6 +64,7 @@ public class Customer implements Serializable {
     public void setUsState(String usState) {
         this.usState = usState;
     }
+    
 
 //    public Long getId() {
 //        return id;

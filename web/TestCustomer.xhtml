@@ -10,17 +10,23 @@
     <h:body>
         <ui:composition template="template.xhtml">
             <ui:define name="content">
+                <h:messages id="validationMessage" style="color:red;font-weight:bold;"></h:messages>
                 <h:form>
-
                     <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
                         <h:outputText value="Email:"></h:outputText>
-                        <h:inputText label="Email" value="#{customer.email}" required="true"/>
+                        <h:inputText label="Email" value="#{customer.email}" required="true">
+                            <f:validator validatorId="emailValidator" />
+                        </h:inputText> 
                         <h:outputText value="First Name:"></h:outputText>
-                        <h:inputText label="firstName" value="#{customer.firstName}" required="true"/> 
+                        <h:inputText label="firstName" value="#{customer.firstName}" required="true">
+                            <f:validateLength minimum="2" maximum="20" />
+                        </h:inputText>
                         <h:outputText value="Last Name:"></h:outputText>
-                        <h:inputText label="lastName" value="#{customer.lastName}" required="true"/> 
+                        <h:inputText label="lastName" value="#{customer.lastName}" required="true">
+                            <f:validateLength minimum="2" maximum="20" />
+                        </h:inputText>
                         <h:outputText value="State:"></h:outputText>
-                        <h:inputText label="state" value="#{customer.usState}" required="true"/>
+                        <h:inputText label="state" value="#{customer.usState}" required="true" />
                         <h:panelGroup></h:panelGroup>
                         <h:commandButton action="#{customerController.saveCustomer}" value="Save"></h:commandButton>
                     </h:panelGrid>
