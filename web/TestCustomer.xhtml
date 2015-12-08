@@ -13,14 +13,14 @@
                 <h:form>
 
                     <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
-                        <h:outputText value="Email"></h:outputText>
+                        <h:outputText value="Email:"></h:outputText>
                         <h:inputText label="Email" value="#{customer.email}" required="true"/>
-                        <h:outputText value="firstName"></h:outputText>
-                        <h:inputText label="First Name" value="#{customer.firstName}" required="true"/> 
-                        <h:outputText value="lastName"></h:outputText>
-                        <h:inputText label="Last Name" value="#{customer.lastName}" required="true"/> 
-                        <h:outputText value="usState"></h:outputText>
-                        <h:inputText label="State" value="#{customer.usState}" required="true"/>
+                        <h:outputText value="First Name:"></h:outputText>
+                        <h:inputText label="firstName" value="#{customer.firstName}" required="true"/> 
+                        <h:outputText value="Last Name:"></h:outputText>
+                        <h:inputText label="lastName" value="#{customer.lastName}" required="true"/> 
+                        <h:outputText value="State:"></h:outputText>
+                        <h:inputText label="state" value="#{customer.usState}" required="true"/>
                         <h:panelGroup></h:panelGroup>
                         <h:commandButton action="#{customerController.saveCustomer}" value="Save"></h:commandButton>
                     </h:panelGrid>

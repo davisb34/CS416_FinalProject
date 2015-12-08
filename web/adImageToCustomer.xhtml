@@ -11,7 +11,7 @@
         <ui:composition template="template.xhtml">
             <ui:define name="content">
                 <h:form enctype="multipart/form-data">
-                    <h:outputText value="Enter Your Email:"></h:outputText>
+                    <h:outputText value="Enter The Customer's Email:"></h:outputText>
                     <h:inputText id="first" value="#{customerController.email}">
                         <f:ajax event="keyup" render="datatable"/>
                     </h:inputText>

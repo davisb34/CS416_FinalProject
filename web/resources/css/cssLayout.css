@@ -4,7 +4,9 @@
     background-color: #ff3300;
     color: white;
     padding: 5px;
-    margin: 0px 0px 10px 0px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #bottom {
@@ -30,8 +32,11 @@
 
 .center_content {
     position: relative;
+    width: 50%;
     background-color: #dddddd;
     padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .left_content {
@@ -55,7 +60,7 @@
 #top a:link:hover, #top a:visited:hover  {
   color: black;
   font-weight : bold;
-  text-decoration : underline;
+  text-decoration : none;
 }
 
 
