@@ -56,21 +56,46 @@ public class ImageController {
         return returnVal;
     }
     
-   public List getretrieveImage() {
+    public List getAllImages() {
         List<Image> images = new ArrayList();
-        String result = "error";
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        String selectSQL = "select i from Image";
+        String selectSQL = "SELECT i FROM Image i";
         try {
             Query selectQuery = entityManager.createQuery(selectSQL);
             images = selectQuery.getResultList();
-           // result = "Gallery";
         } catch (Exception e) {
             e.printStackTrace();
         }
         return images;
     }
     
+    public List getAllImageTitles() {
+        List<Image> images = new ArrayList();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String selectSQL = "SELECT i.title FROM Image i";
+        try {
+            Query selectQuery = entityManager.createQuery(selectSQL);
+            images = selectQuery.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return images;
+    }
+    
+        public String deleteImage(Image item) {
+        String returnValue = "error";
+        try {
+            userTransaction.begin();
+            EntityManager entityManager = entityManagerFactory.createEntityManager();
+            Image imageToDelete = entityManager.find(Image.class, item.getTitle());
+            entityManager.remove(imageToDelete);
+            userTransaction.commit();
+            returnValue = "deleteSuccessful";
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return returnValue;
+    }
     
     public String getTitle() {
         return title;

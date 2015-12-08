@@ -31,7 +31,7 @@ public class Customer implements Serializable {
 //            joinColumns= @JoinColumn(name="customerId",referencedColumnName="id"),
 //            inverseJoinColumns= @JoinColumn(name="imageId",referencedColumnName="title"))
     
-    @OneToMany(mappedBy="customer")
+    @OneToMany(mappedBy="customer", orphanRemoval=true)
     private Set<Image> images;
 
     public Customer() {
