@@ -59,7 +59,20 @@ public class ImageController {
     public List getAllImages() {
         List<Image> images = new ArrayList();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        String selectSQL = "SELECT i FROM Image i";
+        String selectSQL = "SELECT i FROM Image i where (i.customer != null)";
+        try {
+            Query selectQuery = entityManager.createQuery(selectSQL);
+            images = selectQuery.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return images;
+    }
+    
+    public List getAllUncomissionedImages() {
+        List<Image> images = new ArrayList();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        String selectSQL = "SELECT i FROM Image i where (i.customer = null)";
         try {
             Query selectQuery = entityManager.createQuery(selectSQL);
             images = selectQuery.getResultList();
