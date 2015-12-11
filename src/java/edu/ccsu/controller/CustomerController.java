@@ -6,6 +6,7 @@
 package edu.ccsu.controller;
 
 import edu.ccsu.beans.Customer;
+import edu.ccsu.beans.EmailList;
 import edu.ccsu.beans.Image;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,14 +40,24 @@ public class CustomerController {
     private String title;
     
     public String saveCustomer() {
+        List<EmailList> emails = new ArrayList();
         String returnVal = "error";
+        
         try {
             userTransaction.begin();
             EntityManager entityManager = entityManagerFactory.createEntityManager();
             entityManager.persist(customer);
+            String selectSQL = "SELECT e FROM EmailList e where (e.email == " + customer.getEmail() +")";
+           
+            Query selectQuery = entityManager.createQuery(selectSQL);
+         
+            emails = selectQuery.getResultList();
             userTransaction.commit();
             entityManager.close();
             returnVal = "confirmation";
+            if(emails.isEmpty()){
+                returnVal = "needEmailList";
+            }
         }catch(Exception e) {
             e.printStackTrace();
         }
